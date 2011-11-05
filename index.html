@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Language" content="ru">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.jplayer.min.js" type="text/javascript"></script>
+    <script src="js/client.js" type="text/javascript"></script>
+    <title>Чат</title>
+  </head>
+  <body>
+    <div id="app">
+
+      <div id="connect">
+        <form action="#">
+          <fieldset>
+            <p style="display:none">
+              <a href="http://github.com/ry/node_chat/tree/master">here</a>.
+            </p>
+            <label for="nick">Ник</label>
+            <input id="nickInput" class="text"type="text" name="nick" value=""/>
+            <input id="connectButton" class="button" type="submit" name="" value="Войти"/>
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="loading"><p>Загрузка</p></div>
+
+      <div id="log">
+      </div>
+
+      <div id="toolbar">
+        <script>
+        $(document).ready(function() {
+            $("#jpId").jPlayer( {
+                ready: function () {
+                    $(this).jPlayer("setMedia", {
+                        mp3: "sound.mp3"
+                    });
+                },
+                solution:"flash",
+                swfPath:"Jplayer.swf",
+                nativeSupprt: false,
+                html5: false
+            });
+
+        });
+        </script>
+        <div id="jpId"></div>
+        <ul id="status">
+          <li><a id="usersLink" href="#">5 users</a></li>
+          <li>uptime: <span id="uptime">?</span></li>
+          <li>memory: <span id="rss">?</span>mb RSS</li>
+        </ul>
+        <input tabindex="1" type="text" id="entry"/>
+      </div>
+
+    </div>
+  </body>
+</html>
